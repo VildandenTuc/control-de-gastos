@@ -26,7 +26,10 @@ function actualizarListaGastos() {
       alert(`Se ha excedido del límite total de gastos previsto en AR$ ${limiteTotalGastos}`);
     }
     htmlLista +=  `<li>${element} - AR$${valorGasto} 
-                  <button onclick="eliminarGasto(${position});">Eliminar</button>
+                  <div class="botonera">              
+                    <button onclick="modificarGasto(${position});">Modificar</button>  
+                    <button onclick="eliminarGasto(${position});">Eliminar</button>
+                  </div>
                   </li>`;
   });
   listaElement.innerHTML = htmlLista;
@@ -42,5 +45,13 @@ function eliminarGasto(posicion) {
   listaNombreGastos.splice(posicion,1);
   listaValorGastos.splice(posicion,1);
   actualizarListaGastos();
+  document.getElementById('nombreGasto').focus();
+}
+
+function modificarGasto(posicion) {
+  let nuevoValor = parseFloat(prompt("Ingrese el nuevo valor del gasto."));
+  listaValorGastos[posicion] = nuevoValor;
+  actualizarListaGastos();
+  limpiar();
   document.getElementById('nombreGasto').focus();
 }
