@@ -49,7 +49,7 @@ function eliminarGasto(posicion) {
 }
 
 function modificarGasto(posicion) {
-  let nuevoValor = parseFloat(prompt("Ingrese el nuevo valor del gasto."));
+  let nuevoValor = parseFloat(prompt("Ingrese el nuevo valor del gasto: "));
   listaValorGastos[posicion] = nuevoValor;
   actualizarListaGastos();
   limpiar();
