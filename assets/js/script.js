@@ -10,9 +10,6 @@ function clickBoton() {
   actualizarListaGastos();
   limpiar();
   document.getElementById('nombreGasto').focus();
-  // console.log(listaNombreGastos);
-  // console.log(listaValorGastos);
-  // alert("Presiono el boton");
 }
 
 function actualizarListaGastos() {
