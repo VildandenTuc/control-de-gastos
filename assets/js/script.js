@@ -1,6 +1,7 @@
 let listaNombreGastos = [];
 let listaValorGastos = [];
 
+
 function clickBoton() {
   let nombreGasto = document.getElementById('nombreGasto').value;
   let valorGasto = document.getElementById('valorGasto').value;
@@ -16,10 +17,14 @@ function actualizarListaGastos() {
   let htmlLista = '';
   const listaElement = document.getElementById('listaDeGastos');
   let totalGastos = 0.0;
+  const limiteTotalGastos = 30000.00;
 
   listaNombreGastos.forEach((element,position) => {
     const valorGasto = listaValorGastos[position];
     totalGastos += valorGasto;
+    if(totalGastos > limiteTotalGastos){
+      alert(`Se ha excedido del límite total de gastos previsto en AR$ ${limiteTotalGastos}`);
+    }
     htmlLista +=  `<li>${element} - AR$${valorGasto} 
                   <button onclick="eliminarGasto(${position});">Eliminar</button>
                   </li>`;
